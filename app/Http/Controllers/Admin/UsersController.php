@@ -6,8 +6,12 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 
-class UserControler extends Controller
+class UsersController extends Controller
 {
+    public function _construct(){
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      *
@@ -15,20 +19,10 @@ class UserControler extends Controller
      */
     public function index()
     {
-        //
+        return view('user.index')->withUsers(User::all());
     }
 
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\User  $user
-     * @return \Illuminate\Http\Response
-     */
-    public function show(User $user)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
