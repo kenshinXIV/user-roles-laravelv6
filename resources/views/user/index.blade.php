@@ -27,10 +27,10 @@
                                     <td>{{ implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
                                     <td><a href="{{route('admin.users.edit', $user)}}" class="btn btn-success">Edit</a></td>
                                     <td>
-                                        <form action="{{route('admin.users.destroy', $user)}}" mechtod="POST">
+                                        <form action="{{route('admin.users.destroy', $user)}}" method="POST">
                                             @csrf
                                             @method('DELETE')
-                                            <input type="submit" class="btn btn-danger" value="Delete"/>
+                                            <input type="submit" class="btn btn-danger" value="Delete" >
                                         </form>
                                     </td>
                                     
